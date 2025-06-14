@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { validate } from './common/environment/env.validation';
 import { SoccerMatchesModule } from './soccer-matches/soccer-matches.module';
+import { LoggerModule } from './logger/logger.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -13,8 +13,9 @@ import { SoccerMatchesModule } from './soccer-matches/soccer-matches.module';
       validate,
     }),
     SoccerMatchesModule,
+    LoggerModule,
+    HealthModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}
