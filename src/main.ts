@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { logger } from './logger/winston';
-import {ValidationPipe} from "@nestjs/common";
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const port = process.env.APP_PORT ?? 3000;
@@ -10,17 +10,14 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // Set global prefix
-  app.setGlobalPrefix('/api')
-
+  app.setGlobalPrefix('/api');
 
   // Bind ValidationPipe at the application level,
   // thus ensuring all endpoints are protected from receiving incorrect data.
-  app.useGlobalPipes(
-      new ValidationPipe()
-  )
+  app.useGlobalPipes(new ValidationPipe());
 
   // Enable CORS
-  app.enableCors()
+  app.enableCors();
 
   const config = new DocumentBuilder()
     .setTitle('Skeleton API')
