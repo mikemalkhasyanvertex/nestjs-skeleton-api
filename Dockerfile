@@ -15,8 +15,8 @@ RUN npm install
 COPY . .
 
 # Build the NestJS application
-RUN npm prebuild
-RUN npm build
+RUN npm run prebuild
+RUN npm run build
 
 # Expose the port that your NestJS app runs on
 EXPOSE 3000
