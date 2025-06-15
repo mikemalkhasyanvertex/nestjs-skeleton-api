@@ -1,0 +1,6 @@
+# dotenv environment variables file
+.env
+/environment/.env.local
+/environment/.env.local.example
+/environment/.env.prod
+/environment/.env.dev
