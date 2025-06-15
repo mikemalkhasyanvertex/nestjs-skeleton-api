@@ -4,6 +4,8 @@ import { validate } from './common/environment/env.validation';
 import { SoccerMatchesModule } from './soccer-matches/soccer-matches.module';
 import { LoggerModule } from './logger/logger.module';
 import { HealthModule } from './health/health.module';
+import { APP_FILTER } from '@nestjs/core';
+import { HttpExceptionFilter } from './common/utils/http-exception-handler';
 
 @Module({
   imports: [
@@ -16,6 +18,11 @@ import { HealthModule } from './health/health.module';
     LoggerModule,
     HealthModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_FILTER,
+      useClass: HttpExceptionFilter,
+    },
+  ],
 })
 export class AppModule {}
