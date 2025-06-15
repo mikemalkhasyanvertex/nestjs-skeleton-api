@@ -72,33 +72,17 @@ $ npm run test:cov
 
 ```bash
 # health
-localhost:8080/api/health
+localhost:3000/api/health
 ```
 ```bash
 # Open API documentation
-localhost:8080/api/documentation-json
+localhost:3000/api/documentation-json
 ```
 ```bash
 # Swagger UI
-localhost:8080/api/documentation
+localhost:3000/api/documentation
 ```
 
-## Security Scanning
-Security Scanning is done before deployment in the CI/CD pipelines and the reports generated will be stored in their respective portals.
-
-Security reports:
-1. [Snyk](https://app.snyk.io/org/tax-research-modernization/projects/collections/8483f583-fda5-4f38-9050-b4a78e25024d?view=Default+view&sortBy=issues&sortDirection=DESC&cursor)
-2. [Rapid 7](https://us.appsec.insight.rapid7.com/op/EFDDABB098A0A4496D6B/#/apps/98695ace-d455-4f0d-91d9-c7e6aef6ca1f)
 
 ## Deployment
-Deployment is triggered automatically by the CI/CD pipelines in github actions.
-As a security measure, developers don't do manual releases. When a branch is merged to main, there is an automatic release to the sandbox environment.
-
-## Common Errors/Troubleshooting
-### API calls return 401 Unauthorize
-1. Make sure that the call contains Authorization header
-2. Check Cognito settings of API. Make sure they are aligned with settings of Cognito instance issued the token
-
-### API calls return no data
-1. Make sure that the call contains valid request parameters
-2. Check Data service settings of API.
+Coming soon...
