@@ -1,50 +1,57 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Soccer matches skeleton service
 
 ## Description
+Soccer matches service provides method to read and aggregate soccer matches results from 3rd party API's.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Installation
+### Prerequisites
+You must have Node v20+ installed to install, build and run the application.
+The rest of packages will be deployed automatically.
 
-## Project setup
-
+### Installation command
 ```bash
+Node >=v20
 $ npm install
 ```
 
-## Compile and run the project
+## Running the app
+### Setting the environment variables before running the app locally
+Before running app locally you should have ***.env.local*** file placed in the ***/environment*** root directory.
+The required variables can be copied from ***/environment/.env.local.example*** file.
+
+### Building and running
+Application provides set of NPM commands that builds and starts the application with different configuration.
+Start command triggers all needed commands to run the application (build the package and host it using local Dev server).
 
 ```bash
-# development
+# development in Linux/Mac
 $ npm run start
 
-# watch mode
+# development in Linux/Mac watch mode
 $ npm run start:dev
 
-# production mode
+# development in Windows watch mode
+$ npm run start:windows
+
+# start in production mode
 $ npm run start:prod
 ```
 
-## Run tests
+### Code styling
+Application uses ***prettier*** tool to check code quality with default set of style rules.
+
+```bash
+# run Prettier to check the code style
+npm run format:check
+
+# correct all files to use Prettier code style
+npm run format
+```
+
+### Testing
+Application contains set of unit tests created. They are located in ***/test*** folders located in separate module folders.
+Application provides set of NPM commands that run unit tests and measure coverage
 
 ```bash
 # unit tests
@@ -57,42 +64,41 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Deployment
+## Usage
+- To access API methods, please use ***/api*** starting path.
+- API provides Open API documentation generated with Swagger library.
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Usefull links
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# health
+localhost:8080/api/health
+```
+```bash
+# Open API documentation
+localhost:8080/api/documentation-json
+```
+```bash
+# Swagger UI
+localhost:8080/api/documentation
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## Security Scanning
+Security Scanning is done before deployment in the CI/CD pipelines and the reports generated will be stored in their respective portals.
 
-## Resources
+Security reports:
+1. [Snyk](https://app.snyk.io/org/tax-research-modernization/projects/collections/8483f583-fda5-4f38-9050-b4a78e25024d?view=Default+view&sortBy=issues&sortDirection=DESC&cursor)
+2. [Rapid 7](https://us.appsec.insight.rapid7.com/op/EFDDABB098A0A4496D6B/#/apps/98695ace-d455-4f0d-91d9-c7e6aef6ca1f)
 
-Check out a few resources that may come in handy when working with NestJS:
+## Deployment
+Deployment is triggered automatically by the CI/CD pipelines in github actions.
+As a security measure, developers don't do manual releases. When a branch is merged to main, there is an automatic release to the sandbox environment.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## Common Errors/Troubleshooting
+### API calls return 401 Unauthorize
+1. Make sure that the call contains Authorization header
+2. Check Cognito settings of API. Make sure they are aligned with settings of Cognito instance issued the token
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### API calls return no data
+1. Make sure that the call contains valid request parameters
+2. Check Data service settings of API.
