@@ -38,7 +38,7 @@ export class SoccerMatchesController {
   @ApiOperation({
     summary: 'Get Soccer Matches Aggregated result',
   })
-  @Get('aggregate/v1')
+  @Get('aggregate')
   async getSMAggregatedResult(
     @Query(new ValidationPipe({ transform: true }))
     queryParams: GetSMAggregatedResultsByQueryParams,
