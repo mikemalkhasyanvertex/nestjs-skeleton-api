@@ -6,7 +6,6 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const port = process.env.APP_PORT ?? 3000;
-  const host = process.env.APP_HOST ?? 'http://localhost:3000';
   const app = await NestFactory.create(AppModule);
 
   // Set global prefix
@@ -25,7 +24,6 @@ async function bootstrap() {
       "API helps to load data from external API's and build aggregated result",
     )
     .setVersion('1.0')
-    .addServer(host)
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/documentation', app, documentFactory);
