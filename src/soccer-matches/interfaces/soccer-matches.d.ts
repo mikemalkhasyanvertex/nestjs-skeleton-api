@@ -12,6 +12,7 @@ export interface ISoccerMatchesAggregatedResult {
 }
 
 export interface ISoccerMatchesResult {
+  date?: string;
   homeTeam: string;
   awayTeam: string;
   homeScore: number;

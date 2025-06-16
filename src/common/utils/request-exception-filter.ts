@@ -6,9 +6,9 @@ import { AxiosError } from 'axios';
  * @param error
  */
 export const getErrorInfoFromResponse = (error: AxiosError) => {
-    const message = error?.message || 'Internal Server Error';
-    const status = error?.status || HttpStatus.INTERNAL_SERVER_ERROR;
-    return { message, status };
+  const message = error?.message || 'Internal Server Error';
+  const status = error?.status || HttpStatus.INTERNAL_SERVER_ERROR;
+  return { message, status };
 };
 
 /**
@@ -16,6 +16,6 @@ export const getErrorInfoFromResponse = (error: AxiosError) => {
  * @param error
  */
 export const exceptionHandler = (error: AxiosError): void => {
-    const { status, message } = getErrorInfoFromResponse(error);
-    throw new HttpException(message, status);
+  const { status, message } = getErrorInfoFromResponse(error);
+  throw new HttpException(message, status);
 };

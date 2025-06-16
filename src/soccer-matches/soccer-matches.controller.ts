@@ -20,8 +20,8 @@ import { ISoccerMatchesAggregatedResult } from './interfaces/soccer-matches';
 import {
   GetSMAggregatedResultsByQueryParams,
   GetSmAggregatedResultsInternalErrorResponseDto,
-  GetSmAggregatedResultsSuccessResponseDto
-} from "./dto";
+  GetSmAggregatedResultsSuccessResponseDto,
+} from './dto';
 
 @ApiTags('Soccer Matches')
 @UseInterceptors(LoggingInterceptor)

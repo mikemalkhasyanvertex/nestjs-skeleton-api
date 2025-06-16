@@ -74,7 +74,12 @@ export class SoccerMatchesService {
 
       // Collect stats for the home team
       if (!teamStats[homeTeam]) {
-        teamStats[homeTeam] = { winsCount: 0, scoredCount: 0, receivedCount: 0, gamesCount: 0 };
+        teamStats[homeTeam] = {
+          winsCount: 0,
+          scoredCount: 0,
+          receivedCount: 0,
+          gamesCount: 0,
+        };
       }
       teamStats[homeTeam].gamesCount++;
       teamStats[homeTeam].scoredCount += homeScore;
@@ -85,7 +90,12 @@ export class SoccerMatchesService {
 
       // Collect stats for the away team
       if (!teamStats[awayTeam]) {
-        teamStats[awayTeam] = { winsCount: 0, scoredCount: 0, receivedCount: 0, gamesCount: 0 };
+        teamStats[awayTeam] = {
+          winsCount: 0,
+          scoredCount: 0,
+          receivedCount: 0,
+          gamesCount: 0,
+        };
       }
       teamStats[awayTeam].gamesCount++;
       teamStats[awayTeam].scoredCount += awayScore;
