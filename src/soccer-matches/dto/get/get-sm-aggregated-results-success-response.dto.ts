@@ -17,6 +17,7 @@ export class GetSmAggregatedResultsSuccessResponseDto {
       mostWin: {
         team: 'Togo',
         amount: 18,
+        score: 10,
       },
       mostScoredPerGame: {
         team: 'Nigeria',
