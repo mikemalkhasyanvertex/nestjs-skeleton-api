@@ -3,6 +3,7 @@ import { TOURNAMENTS } from '../dto/get/get-sm-aggregated-results-by-query-param
 export interface IAggregatedValues {
   team: string;
   amount: number;
+  score?: number
 }
 
 export interface ISoccerMatchesAggregatedResult {

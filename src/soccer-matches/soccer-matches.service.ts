@@ -106,7 +106,7 @@ export class SoccerMatchesService {
     }
 
     // Define default state results
-    let mostWin = { team: '', amount: 0 };
+    let mostWin = { team: '', amount: 0, score: 0 };
     let mostScoredPerGame = { team: '', amount: 0 };
     let lessReceivedPerGame = { team: '', amount: Infinity };
 
@@ -115,8 +115,9 @@ export class SoccerMatchesService {
       const scoredPerGame = stats.scoredCount / stats.gamesCount;
       const receivedPerGame = stats.receivedCount / stats.gamesCount;
 
-      if (stats.winsCount > mostWin.amount) {
-        mostWin = { team, amount: stats.winsCount };
+      // Check most win count by scored count
+      if (stats.winsCount >= mostWin.amount && stats.scoredCount > mostWin.score) {
+        mostWin = { team, amount: stats.winsCount, score: stats.scoredCount };
       }
       if (scoredPerGame > mostScoredPerGame.amount) {
         mostScoredPerGame = { team, amount: scoredPerGame };

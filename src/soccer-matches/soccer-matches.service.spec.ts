@@ -58,13 +58,13 @@ describe('calculateTotalWins', () => {
         },
       ],
       expected: {
-        mostWin: { team: 'Egypt', amount: 1 },
+        mostWin: { team: 'Egypt', amount: 1, score: 2 },
         mostScoredPerGame: { team: 'Egypt', amount: 2 },
         lessReceivedPerGame: { team: 'Egypt', amount: 1 },
       },
     },
     {
-      description: 'Test with multiple matches where home team wins',
+      description: 'Test with multiple matches where wins the team who scored the most',
       input: [
         {
           date: '2000-01-07',
@@ -88,7 +88,7 @@ describe('calculateTotalWins', () => {
         },
       ],
       expected: {
-        mostWin: { team: 'Tunisia', amount: 1 },
+        mostWin: { team: 'Tunisia', amount: 1, score: 7 },
         mostScoredPerGame: { team: 'Tunisia', amount: 7 },
         lessReceivedPerGame: { team: 'Tunisia', amount: 0 },
       },
@@ -108,7 +108,7 @@ describe('calculateTotalWins', () => {
         },
       ],
       expected: {
-        mostWin: { team: '', amount: 0 },
+        mostWin: { team: '', amount: 0, score: 0 },
         mostScoredPerGame: { team: '', amount: 0 },
         lessReceivedPerGame: { team: 'Trinidad and Tobago', amount: 0 },
       },
@@ -117,7 +117,7 @@ describe('calculateTotalWins', () => {
       description: 'Test with no matches',
       input: [],
       expected: {
-        mostWin: { team: '', amount: 0 },
+        mostWin: { team: '', amount: 0, score: 0 },
         mostScoredPerGame: { team: '', amount: 0 },
         lessReceivedPerGame: { team: '', amount: Infinity },
       },
@@ -157,7 +157,7 @@ describe('calculateTotalWins', () => {
         },
       ],
       expected: {
-        mostWin: { team: 'TeamA', amount: 3 },
+        mostWin: { team: 'TeamA', amount: 3, score: 15 },
         mostScoredPerGame: { team: 'TeamA', amount: 5 },
         lessReceivedPerGame: { team: 'TeamA', amount: 0.3333333333333333 },
       },
